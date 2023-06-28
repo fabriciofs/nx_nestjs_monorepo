@@ -9,11 +9,11 @@ import { UserLazyModule } from './user/user.lazy.module';
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: process.env.DB_HOST_CENTRAL ?? 'localhost',
-      port: Number(process.env.DB_PORT_CENTRAL) ?? 5432,
-      username: process.env.DB_USER_CENTRAL ?? 'postgres',
-      password: process.env.DB_PWS_CENTRAL ?? 'postgres',
-      database: process.env.DB_NAME_CENTRAL ?? 'dbname',
+      host: process.env.DB_HOST_LOCAL ?? 'localhost',
+      port: Number(process.env.DB_PORT_LOCAL) ?? 5432,
+      username: process.env.DB_USER_LOCAL ?? 'postgres',
+      password: process.env.DB_PWS_LOCAL ?? 'postgres',
+      database: process.env.DB_NAME_LOCAL ?? 'dbname',
       entities: [__dirname + '/../**/*.entity{.ts,.js}'],
       autoLoadEntities: true,
       synchronize: true,
@@ -23,4 +23,4 @@ import { UserLazyModule } from './user/user.lazy.module';
   controllers: [],
   providers: [],
 })
-export class AppModule { }
+export class AppModule {}

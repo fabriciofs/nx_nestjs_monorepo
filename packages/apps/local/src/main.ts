@@ -23,7 +23,7 @@ async function bootstrap() {
   const globalPrefix = '';
   app.setGlobalPrefix(globalPrefix);
   app.enableCors();
-  const port = process.env.APP_PORT_CENTRAL || 3000;
+  const port = process.env.APP_PORT_LOCAL || 3000;
   await app.listen(port);
   Logger.log(
     `🚀 Application is running on: http://localhost:${port}/${globalPrefix}`
