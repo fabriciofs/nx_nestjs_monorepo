@@ -7,8 +7,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      working-directory: ./packages
+    defaults:
+      run:
+        working-directory: packages
 
     steps:
       - name: Check out code
