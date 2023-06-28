@@ -17,8 +17,17 @@ jobs:
         with:
           node-version: 18
 
+      - name: Set up Nx
+        uses: nrwl/nx-set-shas@v3
+
       - name: Install dependencies
         run: npm ci
+
+      - name: Test cloud app
+        run: nx test cloud --prod
+
+      - name: Test local app
+        run: nx test local --prod
 
       - name: Build cloud app
         run: nx build cloud --prod
