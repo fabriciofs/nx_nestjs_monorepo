@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+  devenv:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - ${APP_PORT_CLOUD}:${APP_PORT_CLOUD}
+      - ${APP_PORT_LOCAL}:${APP_PORT_LOCAL}
+    volumes:
+      - .:/home/node/app
+    environment:
+      DB_HOST_CLOUD: ${DB_HOST_CLOUD}
+      DB_PORT_CLOUD: ${DB_PORT_CLOUD}
+      DB_USER_CLOUD: ${DB_USER_CLOUD}
+      DB_PWS_CLOUD: ${DB_PWS_CLOUD}
+      DB_NAME_CLOUD: ${DB_NAME_CLOUD}
+      APP_PORT_CLOUD: ${APP_PORT_CLOUD}
+      DB_HOST_LOCAL: ${DB_HOST_LOCAL}
+      DB_PORT_LOCAL: ${DB_PORT_LOCAL}
+      DB_USER_LOCAL: ${DB_USER_LOCAL}
+      DB_PWS_LOCAL: ${DB_PWS_LOCAL}
+      DB_NAME_LOCAL: ${DB_NAME_LOCAL}
+      APP_PORT_LOCAL: ${APP_PORT_LOCAL}
+      NX_DAEMON: false
+
+  database-cloud:
+    image: postgres:13-alpine
+    command: [ "postgres", "-c", "log_statement=all" ]
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: ${DB_USER_CLOUD}
+      POSTGRES_PASSWORD: ${DB_PWS_CLOUD}
+      POSTGRES_DB: ${DB_NAME_CLOUD}
+
+  database-local:
+    image: postgres:13-alpine
+    command: [ "postgres", "-c", "log_statement=all" ]
+    ports:
+      - '5433:5432'
+    environment:
+      POSTGRES_USER: ${DB_USER_LOCAL}
+      POSTGRES_PASSWORD: ${DB_PWS_LOCAL}
+      POSTGRES_DB: ${DB_NAME_LOCAL}
