@@ -4,7 +4,11 @@
   "license": "MIT",
   "scripts": {
     "build:cloud": "nx build cloud --prod && docker build -t fabriciofs7/api-cloud -f apps/cloud/Dockerfile . && docker push fabriciofs7/api-cloud",
-    "build:local": "nx build local --prod && docker build -t fabriciofs7/api-local -f apps/local/Dockerfile . && docker push fabriciofs7/api-local"
+    "build:local": "nx build local --prod && docker build -t fabriciofs7/api-local -f apps/local/Dockerfile . && docker push fabriciofs7/api-local",
+    "build:ci:cloud": "nx build cloud --prod",
+    "build:ci:local": "nx build local --prod",
+    "test:ci:cloud": "nx test cloud --prod",
+    "test:ci:local": "nx test local --prod"
   },
   "private": true,
   "dependencies": {
