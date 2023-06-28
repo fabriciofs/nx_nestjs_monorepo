@@ -8,7 +8,6 @@ This is an example of a monorepo project using NX for package management and Nes
 - [TypeScript](https://www.typescriptlang.org/)
 - [NestJS](https://nestjs.com/)
 - [Docker](https://Docker.com)
-- [Husky](https://typicode.github.io/husky/)
 
 ## Structure
 

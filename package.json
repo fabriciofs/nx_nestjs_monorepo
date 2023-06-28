@@ -1,0 +1,20 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "This is an example of a monorepo project using NX for package management and NestJS for the development of two APIs. One is called CLOUD and the other LOCAL. There is a LIB that contains a USER entity that will be shared between both APIs.",
+  "main": "index.js",
+  "scripts": {
+    "dev:local": "cd packages && nx run local:serve:development",
+    "dev:cloud": "cd packages && nx run cloud:serve:development",
+    "dev": "concurrently \"npm run dev:local\" \"npm run dev:cloud\"",
+    "build": "cd packages && nx run-many --target=build --projects=cloud,local --parallel",
+    "test:watch": "cd packages && nx run-many --target=test --projects=cloud,local --parallel --watch",
+    "test": "cd packages && nx run-many --target=test --projects=cloud,local --parallel"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
