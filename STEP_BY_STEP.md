@@ -45,7 +45,7 @@ nx generate @nrwl/node:library entities
 5. Install the necessary packages:
 
 ```bash
-npm install @nestjs/typeorm typeorm pg @nestjs/swagger class-transformer class-validator
+npm install @nestjs/typeorm typeorm pg @nestjs/swagger class-transformer class-validator @nestjs/config
 ```
 
 Note: You only need to install the packages once from the 'packages' directory, and they will be available for all projects.
