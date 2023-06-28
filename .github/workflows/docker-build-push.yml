@@ -45,7 +45,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./apps/cloud/Dockerfile
+          file: ./packages/apps/cloud/Dockerfile
           push: true
           tags: fabriciofs7/api-cloud:latest
 
@@ -53,6 +53,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./apps/local/Dockerfile
+          file: ./packages/apps/local/Dockerfile
           push: true
           tags: fabriciofs7/api-local:latest
