@@ -2,7 +2,10 @@
   "name": "@packages/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "build:cloud": "nx build cloud --prod && docker build -t fabriciofs7/api-cloud -f apps/cloud/Dockerfile . && docker push fabriciofs7/api-cloud",
+    "build:local": "nx build local --prod && docker build -t fabriciofs7/api-local -f apps/local/Dockerfile . && docker push fabriciofs7/api-local"
+  },
   "private": true,
   "dependencies": {
     "@nestjs/common": "^10.0.2",
